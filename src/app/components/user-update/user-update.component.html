@@ -1,0 +1,65 @@
+<div class="form-container">
+    <h2>Update User</h2>
+  
+    <form (ngSubmit)="updateUser()">
+      <div class="form-field">
+        <label for="user_name">User Name:</label>
+        <span id="user_name">{{ user.user_name }}</span>
+      </div>
+  
+      <div class="form-field">
+        <label for="first_name">First Name:</label>
+        <input
+          type="text"
+          id="first_name"
+          [(ngModel)]="user.first_name"
+          name="first_name"
+          required
+          placeholder="Enter first name"
+        />
+      </div>
+  
+      <div class="form-field">
+        <label for="last_name">Last Name:</label>
+        <input
+          type="text"
+          id="last_name"
+          [(ngModel)]="user.last_name"
+          name="last_name"
+          required
+          placeholder="Enter last name"
+        />
+      </div>
+  
+      <div class="form-field">
+        <label for="department">Department:</label>
+        <input
+          type="text"
+          id="department"
+          [(ngModel)]="user.department"
+          name="department"
+          placeholder="Enter department"
+        />
+      </div>
+  
+      <div class="form-field">
+        <label for="user_status">User Status:</label>
+        <select
+          id="user_status"
+          [(ngModel)]="user.user_status"
+          name="user_status"
+          required
+        >
+          <option *ngFor="let status of userStatusOptions" [value]="status.value">
+            {{ status.label }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Update User</button>
+        <button type="button" class="btn-secondary" (click)="goBack()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
